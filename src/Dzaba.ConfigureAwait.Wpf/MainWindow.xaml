@@ -1,0 +1,54 @@
+﻿<Window x:Class="Dzaba.ConfigureAwait.Wpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        Title="ConfigureAwait Test" Height="450" Width="1200">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Margin="3"
+                Grid.Row="0" Grid.Column="0"
+                Content="await myService.SomeVeryImportantOperationAsync();"
+                Name="BtnA" Click="BtnA_Click" />
+
+        <Button Margin="3"
+                Grid.Row="0" Grid.Column="1"
+                Content="await myService.SomeVeryImportantOperationAsync().ConfigureAwait(false);"
+                Name="BtnB" Click="BtnB_Click" />
+
+        <Button Margin="3"
+                Grid.Row="1" Grid.Column="0"
+                Content="await myService.SomeVeryImportantOperationWithConfigureAwaitAsync();"
+                Name="BtnC" Click="BtnC_Click" />
+
+        <Button Margin="3"
+                Grid.Row="1" Grid.Column="1"
+                Content="await myService.SomeVeryImportantOperationWithConfigureAwaitAsync().ConfigureAwait(false);"
+                Name="BtnD" Click="BtnD_Click" />
+
+        <Button Margin="3"
+                Grid.Row="2" Grid.Column="0"
+                Content="myService.SomeVeryImportantOperationWithConfigureAwaitAsync().Result;"
+                Name="BtnE" Click="BtnE_Click" />
+
+        <Button Margin="3"
+                Grid.Row="2" Grid.Column="1"
+                Content="myService.SomeVeryImportantOperationAsync().Result;"
+                Name="BtnF" Click="BtnF_Click" />
+
+        <TextBlock Margin="6"
+                   Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"
+                   Name="LblLogs" />
+    </Grid>
+</Window>

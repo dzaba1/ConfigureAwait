@@ -1,0 +1,6 @@
+@Dzaba.ConfigureAwait.Http_HostAddress = http://localhost:5069
+
+GET {{Dzaba.ConfigureAwait.Http_HostAddress}}/my/a
+Accept: application/json
+
+###
